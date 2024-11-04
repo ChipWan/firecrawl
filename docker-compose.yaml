@@ -4,9 +4,9 @@ x-common-service: &common-service
   build:
     context: apps/api
     args:
-      HTTP_PROXY: ${HTTP_PROXY}
-      HTTPS_PROXY: ${HTTPS_PROXY}
-      NO_PROXY: ${NO_PROXY}
+      HTTP_PROXY: ${http_proxy}
+      HTTPS_PROXY: ${https_proxy}
+      NO_PROXY: ${no_proxy}
   networks:
     - backend
   extra_hosts:
