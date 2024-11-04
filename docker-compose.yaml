@@ -14,6 +14,7 @@ x-common-service: &common-service
 
 services:
   playwright-service:
+    image: registry.cn-hangzhou.aliyuncs.com/chipwan/firecrawl-playwright-service:latest
     build: apps/playwright-service
     environment:
       - PORT=3000
@@ -26,6 +27,7 @@ services:
 
   api:
     <<: *common-service
+    image: registry.cn-hangzhou.aliyuncs.com/chipwan/firecrawl-api:latest
     environment:
       REDIS_URL: ${REDIS_URL:-redis://redis:6379}
       REDIS_RATE_LIMIT_URL: ${REDIS_URL:-redis://redis:6379}
@@ -60,6 +62,7 @@ services:
 
   worker:
     <<: *common-service
+    image: registry.cn-hangzhou.aliyuncs.com/chipwan/firecrawl-worker:latest
     environment:
       REDIS_URL: ${REDIS_URL:-redis://redis:6379}
       REDIS_RATE_LIMIT_URL: ${REDIS_URL:-redis://redis:6379}
